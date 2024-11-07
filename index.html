@@ -40,7 +40,7 @@
       width: 20px;
       height: 20px;
       flex-shrink: 0;
-      transform: rotate(45deg); /* Update 1 */
+      transform: rotate(45deg);
     }
   </style>
 </head>
@@ -63,18 +63,25 @@
     ];
 
     const ANSWERS = [
-      { character: 'Ana', text: 'Eu organizo minha rotina de estudo para aprender sobre a tecnologia de forma estruturada, garantindo que estou preparado para o processo de adoção.', competency: 2 },
+	//respostas 1
+ 	  { character: 'Ana', text: 'Eu organizo minha rotina de estudo para aprender sobre a tecnologia de forma estruturada, garantindo que estou preparado para o processo de adoção.', competency: 2 },
       { character: 'Cris', text: 'Eu vejo essa implantação como uma oportunidade de aprendizado. Acredito que posso evoluir e adquirir novas habilidades ao me adaptar a essa nova tecnologia.', competency: 1 },
+	  
+	//respostas 2
       { character: 'Rui', text: 'Eu observo o que está acontecendo e respondo rapidamente quando vejo que algo precisa ser feito, adaptando minhas ações às necessidades conforme surgem.', competency: 2 },
       { character: 'Cris', text: 'Eu me antecipo às necessidades e já começo a buscar recursos e entender mais sobre a tecnologia, para contribuir desde o início com a equipe.', competency: 1 },
+	  
+	//respostas 3
       { character: 'Ana', text: 'Eu adapto minha abordagem rapidamente, ajustando minhas ações conforme surgem novas demandas, para que possamos manter o ritmo acelerado', competency: 1 },
       { character: 'Rui', text: 'Eu prefiro entender todos os detalhes antes de agir, para tomar decisões bem fundamentadas e garantir que cada passo seja o mais eficaz possível.', competency: 2 },
+	  
+	//respostas 4  
       { character: 'Ana', text: 'Sim, eu me dedico a entender cada detalhe da proposta para saber exatamente o que esperar e como isso pode afetar cada aspecto do meu trabalho.', competency: 1 },
       { character: 'Cris', text: 'Eu vejo o impacto da mudança em um contexto mais amplo, compreendendo como essa tecnologia vai influenciar a organização como um todo e, consequentemente, nossa rotina.', competency: 2 }
     ];
 
     function ResultExplanation({ competencyScore }) {
-      const CharacterAvatar = ({ character }) => ( /* Update 5 */
+      const CharacterAvatar = ({ character }) => (
         <div className={`character-avatar ${CHARACTERS[character].color}`}>
           {CHARACTERS[character].emoji}
         </div>
@@ -91,10 +98,10 @@
           const score2 = competencyScore[2];
           let newExplanation = '';
 
-          if (score1 > score2) {
+           if (score1 > score2) {
             newExplanation = "A dominância Prudência Operacional pode melhorar com as seguintes ações: ser mais disciplonado, vuscar reagir ao que acontece ao seu retor, agir sem ser solicitado e olhar melhor para os detalhes.";
           } else if (score2 > score1) {
-            newExplanation = "A dominância Percepção pode melhorar com as seguintes ações: exercite o seu mindset de crscimento, seja mais proativo, exercite o seu pensamento, para que ele seja mais ágil e busque ter visão sistêmica.";
+            newExplanation = "AA dominância Percepção pode melhorar com as seguintes ações: exercite o seu mindset de crscimento, seja mais proativo, exercite o seu pensamento, para que ele seja mais ágil e busque ter visão sistêmica.";
           } else {
             newExplanation = "A dominância Percepção está equilibrada com a Prudência Operacional, o que pode ser que você tenha traços de ambidestria. Mesmo assim, não deixe de trabalhar cada um dos detalhes de cada um dos comportamentos destas competências.";
           }
@@ -126,11 +133,11 @@
       return (
         <div className="mt-4">
           {!showExplanation && !isLoading && (
-            <div className="flex justify-start"> {/* Update 2 */}
-              <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 2 */}
-                <CharacterAvatar character="Risk" /> {/* Update 2 */}
-                <div className="flex flex-col"> {/* Update 2 */}
-                  <p className="font-semibold">Risk</p> {/* Update 2 */}
+            <div className="flex justify-start">
+              <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                <CharacterAvatar character="Risk" />
+                <div className="flex flex-col">
+                  <p className="font-semibold">Risk</p>
                   <button
                     onClick={handleExplanationRequest}
                     className="bg-blue-500 text-white rounded-lg p-2 flex items-center space-x-2 hover:bg-blue-600 transition-colors"
@@ -138,29 +145,29 @@
                     <span>Quer que eu explique o resultado?</span>
                     <PaperPlaneIcon />
                   </button>
-                </div> {/* Update 2 */}
-              </div> {/* Update 2 */}
+                </div>
+              </div>
             </div>
           )}
           {isLoading && <TypingIndicator />}
           {showExplanation && (
-            <div className="space-y-4"> {/* Update 3 */}
-              <div className="flex justify-start"> {/* Update 3 */}
-                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 3 */}
-                  <CharacterAvatar character="Risk" /> {/* Update 3 */}
-                  <div className="flex flex-col"> {/* Update 3 */}
-                    <p className="font-semibold">Risk</p> {/* Update 3 */}
-                    <p>{explanation}</p> {/* Update 3 */}
-                  </div> {/* Update 3 */}
-                </div> {/* Update 3 */}
-              </div> {/* Update 3 */}
-              <div className="flex justify-start"> {/* Update 3 */}
-                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 3 */}
-                  <CharacterAvatar character="Risk" /> {/* Update 3 */}
-                  <div className="flex flex-col"> {/* Update 3 */}
-                    <p className="font-semibold">Risk</p> {/* Update 3 */}
+            <div className="space-y-4">
+              <div className="flex justify-start">
+                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                  <CharacterAvatar character="Risk" />
+                  <div className="flex flex-col">
+                    <p className="font-semibold">Risk</p>
+                    <p>{explanation}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                  <CharacterAvatar character="Risk" />
+                  <div className="flex flex-col">
+                    <p className="font-semibold">Risk</p>
                     <p>
-						Os comportamentos e competências testadas foram: 
+                      Os comportamentos e competências testadas foram: 
 						<p><b>Competência Percepção (Criatividade):</b></p>
 						<p>1. Mindset de Crescimento</p>
 						<p>2. Proatividade</p>
@@ -171,20 +178,19 @@
 						<p>2. Reativo</p>
 						<p>3. Deliberado</p>
 						<p>4. Detalhista</p>
-						
-                    </p> {/* Update 3 */}
-                  </div> {/* Update 3 */}
-                </div> {/* Update 3 */}
-              </div> {/* Update 3 */}
-              <div className="flex justify-start mt-4"> {/* Update 4 */}
-                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2"> {/* Update 4 */}
-                  <CharacterAvatar character="Risk" /> {/* Update 4 */}
-                  <div className="flex flex-col"> {/* Update 4 */}
-                    <p className="font-semibold">Risk</p> {/* Update 4 */}
-                    <p>Obrigado por participar! Espero que essas informações tenham sido úteis para você.</p> {/* Update 4 */}
-                  </div> {/* Update 4 */}
-                </div> {/* Update 4 */}
-              </div> {/* Update 4 */}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex justify-start mt-4">
+                <div className="flex items-start space-x-2 bg-gray-200 rounded-lg p-2">
+                  <CharacterAvatar character="Risk" />
+                  <div className="flex flex-col">
+                    <p className="font-semibold">Risk</p>
+                    <p>Obrigado por participar! Espero que essas informações tenham sido úteis para você.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -193,7 +199,9 @@
 
     function ChatInterface() {
       const [messages, setMessages] = React.useState([
-        { character: 'Risk', text: 'Olá! Bem-vindos ao bate-papo entre Rui, Ana e Cris.' },
+        { character: 'Risk', text: 
+			'Olá! Bem-vindos ao bate-papo entre Rui, Ana e Cris. Iremos testar as suas habilidade em **Percepção e Prudência Operacional**' 
+		},
         { character: 'Risk', text: 'Vamos iniciar o bate-papo?', isButton: true }
       ]);
       const [currentQuestion, setCurrentQuestion] = React.useState(0);
@@ -214,35 +222,44 @@
           [answer.competency]: Math.min(prev[answer.competency] + 1, 4)
         }));
         setShowAnswers(false);
-        setCurrentQuestion(prev => prev + 1);
-        if (currentQuestion < QUESTIONS.length - 1) {
-          simulateTyping();
-        } else {
-          setShowResult(true);
-        }
+        //Avança para a próxima pergunta 
+        
+        setCurrentQuestion(prev => {
+          const next = prev + 1;
+          if (next < QUESTIONS.length) {
+            setTimeout(() => simulateTyping(next), 1000);
+          } else {
+            setShowResult(true);
+          }
+          return next;
+        });
       };
 
-      const simulateTyping = () => {
+      const simulateTyping = (questionIndex) => {
         setIsTyping(true);
         setTimeout(() => {
           setIsTyping(false);
-          addMessage(QUESTIONS[currentQuestion].character, QUESTIONS[currentQuestion].text);
-          setIsTyping(true);
-          setTimeout(() => {
-            setIsTyping(false);
-            addMessage('Risk', 'Qual das respostas você escolheria?');
+          if (questionIndex < QUESTIONS.length) {
+            addMessage(QUESTIONS[questionIndex].character, QUESTIONS[questionIndex].text);
             setIsTyping(true);
             setTimeout(() => {
               setIsTyping(false);
-              setShowAnswers(true);
+              addMessage('Risk', 'Qual das respostas você escolheria?');
+              setIsTyping(true);
+              setTimeout(() => {
+                setIsTyping(false);
+                setShowAnswers(true);
+              }, 1000);
             }, 1000);
-          }, 1000);
+          } else {
+            setShowResult(true);
+          }
         }, 2000);
       };
 
       const startConversation = () => {
         setConversationStarted(true);
-        simulateTyping();
+        simulateTyping(0);
       };
 
       const TypingIndicator = () => (
@@ -320,9 +337,8 @@
                 <div key={competency} className="mb-8">
                   <div className="flex justify-between items-center mb-2">
                     <span className="font-bold text-xl">
-					          {competency === 1 ? 'Percepção' : 'Prudência Operacional'}
-							  
-					</span>
+							 {competency === 1 ? 'Percepção' : 'Prudência Operacional'}
+					</span>		 
                     <span className="font-bold text-lg">Score: {competencyScore[competency] * 25}%</span>
                   </div>
                   <div className="relative">
